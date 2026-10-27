@@ -23,6 +23,11 @@ class StoreApiTests(APITestCase):
             stock=5,
         )
 
+    def test_backend_root_points_to_the_versioned_api(self):
+        response = self.client.get("/")
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.data["api"], "/api/v1/")
+
     def test_anonymous_users_can_browse_and_filter_products(self):
         response = self.client.get("/api/v1/products/", {"category": "electronics", "min_price": "50"})
         self.assertEqual(response.status_code, 200)

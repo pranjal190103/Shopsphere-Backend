@@ -1,6 +1,9 @@
 from django.contrib import admin
 from django.urls import include, path
 from rest_framework.routers import DefaultRouter
+from rest_framework.permissions import AllowAny
+from rest_framework.response import Response
+from rest_framework.views import APIView
 from store.views import (
     AddressViewSet,
     BrandListView,
@@ -15,12 +18,25 @@ from store.views import (
     WishlistView,
 )
 
+
+class PublicApiRootView(APIView):
+    permission_classes = [AllowAny]
+
+    def get(self, request):
+        return Response({
+            "name": "ShopSphere API",
+            "status": "ok",
+            "api": "/api/v1/",
+            "products": "/api/v1/products/",
+        })
+
 router = DefaultRouter()
 router.register("products", ProductViewSet, basename="product")
 router.register("addresses", AddressViewSet, basename="address")
 router.register("orders", OrderViewSet, basename="order")
 
 urlpatterns = [
+    path("", PublicApiRootView.as_view(), name="api-root"),
     path("admin/", admin.site.urls),
     path("api/v1/auth/register/", RegisterView.as_view(), name="register"),
     path("api/v1/auth/login/", LoginView.as_view(), name="token_obtain_pair"),
