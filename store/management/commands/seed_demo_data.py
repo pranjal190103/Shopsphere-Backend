@@ -83,6 +83,34 @@ class Command(BaseCommand):
                 '1603052875302-d376b7c0638a', '1543168256-418811576931', '1602143407151-7111542de6e8',
                 '1544787219-7f47ccb76574', '1603199506016-b9a594b593c0',
         ]
+        catalog.extend([
+            ("Aero Wireless Earbuds", "Electronics", "Brightside", "Compact wireless earbuds with a charging case and clear everyday sound.", "1999.00", "2799.00", 34, True),
+            ("Northstar 4K Smart TV", "Electronics", "Northstar", "A crisp 4K display with simple streaming access for movie nights at home.", "28990.00", "34990.00", 11, False),
+            ("Everyday Cotton T-Shirt", "Fashion", "Everyday Co.", "A soft cotton crew-neck tee with an easy fit for everyday wear.", "699.00", "899.00", 46, True),
+            ("Weekend Walking Shoes", "Fashion", "Urban Field", "Lightweight walking shoes with a cushioned sole for daily errands and travel.", "1899.00", "2499.00", 25, False),
+            ("Cotton Bedsheet Set", "Home & Kitchen", "Aster & Oak", "A breathable cotton bedsheet set in a calm, versatile colour palette.", "1799.00", "2299.00", 18, True),
+            ("Glass Water Carafe", "Home & Kitchen", "Everyday Co.", "A simple reusable glass carafe for keeping chilled water close at hand.", "599.00", "799.00", 31, False),
+            ("Gentle Daily Face Wash", "Beauty & Personal Care", "Everyday Co.", "A gentle daily face wash made for a fresh, uncomplicated skincare routine.", "399.00", "499.00", 40, True),
+            ("Nourishing Hand Cream", "Beauty & Personal Care", "Aster & Oak", "A lightweight hand cream for comfortable, everyday hydration at home or away.", "249.00", "349.00", 53, False),
+            ("Adjustable Dumbbell Pair", "Sports & Fitness", "Northstar", "A compact pair of adjustable dumbbells for flexible strength training at home.", "2499.00", "3199.00", 14, True),
+            ("Cork Yoga Block Set", "Sports & Fitness", "Urban Field", "A pair of supportive cork yoga blocks for balance, flexibility and practice.", "899.00", "1199.00", 22, False),
+            ("Quiet Mornings Journal", "Books", "PageTurner", "A sample guided journal for reflection, planning and small daily intentions.", "349.00", "449.00", 27, True),
+            ("Stories from the Hills", "Books", "PageTurner", "A sample collection of gentle travel stories inspired by mountain communities.", "499.00", "649.00", 19, False),
+            ("Magnetic Builder Tiles", "Toys & Games", "Everyday Co.", "Colourful magnetic tiles for open-ended building and imaginative play.", "1499.00", "1899.00", 20, True),
+            ("Junior Science Explorer Kit", "Toys & Games", "Brightside", "A sample hands-on activity kit introducing young learners to simple experiments.", "999.00", "1299.00", 16, False),
+            ("Ground Coffee Discovery Pack", "Grocery & Essentials", "Brightside", "A sample assortment of aromatic ground coffees for a relaxed daily brew.", "549.00", "699.00", 36, True),
+            ("Wholegrain Snack Box", "Grocery & Essentials", "Everyday Co.", "A sample selection of crunchy wholegrain snacks for lunchboxes and breaks.", "399.00", "499.00", 42, False),
+        ])
+        image_ids.extend([
+            "1505740420928-5e560c06d30e", "1496181133206-80ce9b88a853",
+            "1596755094514-f87e34085b2c", "1542291026-7eec264c27ff",
+            "1602143407151-7111542de6e8", "1603199506016-b9a594b593c0",
+            "1608248543803-ba4f8c70ae0b", "1556229010-6c3f2c9ca5f8",
+            "1544367567-0f2fcb009e0b", "1598289431512-b97b0917affc",
+            "1544947950-fa07a98d237f", "1519682337058-a94d519337bc",
+            "1587654780291-39c9404d746b", "1610890716171-6b1bb98ffd09",
+            "1495474472287-4d71bcdd2085", "1544787219-7f47ccb76574",
+        ])
         for index, (name, category, brand, description, price, original, stock, featured) in enumerate(catalog):
             image = f"https://images.unsplash.com/photo-{image_ids[index]}?auto=format&fit=crop&w=900&q=85"
             product, _ = Product.objects.update_or_create(
